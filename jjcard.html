@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="簡文山｜台北醫學大學大數據及管理研究所｜個人電子名片" />
+  <title>簡文山｜個人電子名片</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #18202a;
+      --muted: #667085;
+      --line: #e4e7ec;
+      --accent: #163b65;
+      --accent-2: #0f6b78;
+      --shadow: 0 18px 50px rgba(16, 24, 40, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(22, 59, 101, .10), transparent 32%),
+        radial-gradient(circle at 100% 100%, rgba(15, 107, 120, .10), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font-family:
+        -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC",
+        "Microsoft JhengHei", "Segoe UI", sans-serif;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 28px 18px;
+    }
+
+    .card {
+      width: min(100%, 680px);
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid rgba(228, 231, 236, .95);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 38px 34px 30px;
+      background:
+        linear-gradient(135deg, rgba(22, 59, 101, .98), rgba(15, 107, 120, .94));
+      color: white;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -70px -90px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.07);
+      z-index: -1;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 14px;
+      letter-spacing: .12em;
+      opacity: .82;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 7vw, 54px);
+      line-height: 1.05;
+      letter-spacing: .04em;
+      font-weight: 750;
+    }
+
+    .org {
+      margin: 16px 0 0;
+      max-width: 520px;
+      font-size: 18px;
+      line-height: 1.55;
+      opacity: .94;
+    }
+
+    .content {
+      padding: 30px 34px 34px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 66px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-2px);
+      border-color: #c9d5e3;
+      box-shadow: 0 10px 24px rgba(16,24,40,.07);
+    }
+
+    .icon {
+      flex: 0 0 42px;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: #eef4f8;
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    .label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .value {
+      display: block;
+      font-size: 16px;
+      font-weight: 650;
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 15px;
+      min-height: 52px;
+      padding: 13px 18px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #eef3f7;
+      color: var(--accent);
+      border: 1px solid #dce5ec;
+    }
+
+    .hint {
+      margin: 18px 2px 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    footer {
+      padding: 0 34px 26px;
+      color: #98a2b3;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 16px 12px; }
+      .hero { padding: 32px 24px 26px; }
+      .content { padding: 24px; }
+      footer { padding: 0 24px 22px; }
+      .actions { grid-template-columns: 1fr; }
+      .org { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-label="簡文山個人電子名片">
+    <section class="hero">
+      <p class="eyebrow">DIGITAL BUSINESS CARD</p>
+      <h1>簡文山</h1>
+      <p class="org">台北醫學大學大數據及管理研究所</p>
+    </section>
+
+    <section class="content">
+      <div class="contact-list">
+        <a class="contact-item" href="tel:0970405855" aria-label="撥打 0970-405-855">
+          <span class="icon" aria-hidden="true">☎</span>
+          <span>
+            <span class="label">手機</span>
+            <span class="value">0970-405-855</span>
+          </span>
+        </a>
+
+        <a class="contact-item" href="mailto:jjtmutw@gmail.com" aria-label="寄信給 jjtmutw@gmail.com">
+          <span class="icon" aria-hidden="true">✉</span>
+          <span>
+            <span class="label">Email</span>
+            <span class="value">jjtmutw@gmail.com</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="downloadVcf" type="button">
+          加入通訊錄（下載 VCF）
+        </button>
+        <a class="btn btn-secondary" href="mailto:jjtmutw@gmail.com">
+          寄送 Email
+        </a>
+      </div>
+
+      <p class="hint">
+        在 iPhone 上點選「加入通訊錄（下載 VCF）」後，可開啟聯絡人資料並加入通訊錄。
+      </p>
+    </section>
+
+    <footer>
+      © 簡文山｜個人電子名片
+    </footer>
+  </main>
+
+  <script>
+    const vcf = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      "N:簡;文山;;;",
+      "FN:簡文山",
+      "ORG:台北醫學大學大數據及管理研究所",
+      "TEL;TYPE=CELL:0970405855",
+      "EMAIL;TYPE=INTERNET:jjtmutw@gmail.com",
+      "END:VCARD"
+    ].join("\r\n");
+
+    document.getElementById("downloadVcf").addEventListener("click", () => {
+      const blob = new Blob([vcf], { type: "text/vcard;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "簡文山.vcf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+  </script>
+</body>
+</html>
